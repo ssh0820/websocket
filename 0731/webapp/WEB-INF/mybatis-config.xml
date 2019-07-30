@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+"-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="Article" type="org.jbp.model2.vo.Article"/>
+		<typeAlias alias="Reply" type="org.jbp.model2.vo.Reply"/>
+		<typeAlias alias="User" type="org.jbp.model2.vo.User"/>
+		<typeAlias alias="PageVO" type="org.jbp.model2.vo.PageVO"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="org/jbp/model2/mapper/articles.xml" />
+		<mapper resource="org/jbp/model2/mapper/users.xml" />
+		<mapper resource="org/jbp/model2/mapper/replies.xml" />
+	</mappers>
+
+</configuration>
+
+
+
+
+

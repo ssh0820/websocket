@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+#header h1 {
+	position: relative;
+	margin: auto;
+	width: 250px;
+}
+
+body {
+	background: #F5F6F7;
+}
+
+#content h2 {
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+	margin: 20px;
+}
+
+#joinBox {
+	width: 500px;
+	margin: auto;
+}
+
+#joinBox .row {
+	margin-top: 20px;
+}
+
+#joinBox .label {
+	display: block;
+	font-size: 18px;
+	color: #666;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 10px;
+	font-weight: 900;
+}
+
+#joinBox .msg {
+	color: #D32F2F;
+	padding-top: 20px;
+	font-weight: 500;
+}
+
+#joinBox .msg.ok {
+	color: #14BAB6;
+}
+
+#joinBox input {
+	border: none;
+	width: 456px;
+	height: 30px;
+	font-size: 21px;
+	font-family: 'Kakao', sans-serif;
+	font-weight: 500;
+	padding: 15px 22px;
+	color: #606060;
+	transition: .2s ease;
+	z-index: 1;
+	outline: 1px solid #dadada;
+	position: relative;
+}
+
+#joinBox input:focus {
+	outline: 2px solid #14bab6;
+}
+
+#joinBox #profile {
+	font-size: 15px;
+	cursor: pointer;
+	height: 30px;
+}
+
+#birthDate {
+	display: inline-block;
+	text-align: right;
+}
+
+#birthDate input {
+	width: 119px;
+}
+
+#birthDate label {
+	font-size: 21px;
+}
+
+#profileBox {
+	width: 140px;
+	height: 140px;
+	text-align: center;
+	font-size: 140px;
+	position: relative;
+	color: #ddd;
+	border-radius: 140px;
+	display: block;
+	margin: auto;
+}
+
+#profileBox.no_image #profileImg {
+	display: none;
+}
+
+#profileBox label {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	background: #9E9E9E;
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 40px;
+	cursor: pointer;
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+#profileBox label:hover {
+	background: #14bab6;
+}
+
+#profileRow {
+	height: 210px;
+	position: relative;
+}
+
+#profile {
+	display: none;
+}
+
+#profileImg {
+	width: 140px;
+	height: 140px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 140px;
+}
+
+#profileBox.no_image .delete {
+	display: none;
+}
+
+.delete {
+	width: 24px;
+	height: 24px;
+	border-radius: 24px;
+	text-align: center;
+	line-height: 24px;
+	cursor: pointer;
+	position: absolute;
+	border: none;
+	outline: none;
+	right: 8px;
+	top: 8px;
+	background: #9E9E9E;
+	display: block;
+}
+
+.delete:hover {
+	background: #14bab6;
+	color: #fff;
+}

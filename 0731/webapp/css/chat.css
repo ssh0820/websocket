@@ -1,0 +1,219 @@
+@charset "UTF-8";
+
+#chattingSection {
+	width: 600px;
+	height: 800px;
+	position: relative;
+	box-shadow: 0 2px 5px 0 rgba(32, 25, 9, 0.16), 0 2px 10px 0
+		rgba(32, 25, 9, 0.12);
+	background-color: rgb(75, 56, 57);
+	border-radius: 8px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+
+#chatList {
+	height: 740px;
+	position: relative;
+}
+
+#chatListWrap {
+	height: 700px;
+	top: 40px;
+	width: 600px;
+	position: absolute;
+	overflow-y: scroll;
+}
+
+#chatList ul {
+	width: 583px;
+}
+
+#closeBtn {
+	height: 40px;
+	position: absolute;
+	line-height: 40px;
+	right: 10px;
+	top: -10px;
+	padding: 0 10px;
+}
+
+#chatList li {
+	padding: 5px;
+	min-height: 60px;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+#chatList .box_chat {
+	width: 500px;
+	min-height: 40px;
+	/* 포지셔닝 컨텍스트 지정 */
+	position: relative;
+	left: 70px;
+	top: 20px;
+}
+
+.card_user {
+	width: 60px;
+	height: 70px;
+	text-align: center;
+	top: 5px;
+	left: 5px;
+	position: absolute;
+	line-height: 1em;
+}
+
+#chatList .mine .box_chat {
+	text-align: right;
+	left: 5px;
+}
+
+#chatList .mine .card_user {
+	top: 5px;
+	right: 0;
+	left: inherit;
+}
+
+#chatList .card_user img {
+	margin: auto;
+	width: 50px;
+	height: 50px;
+	display: block;
+	border-radius: 25px;
+	box-shadow: 0 2px 5px 0 rgba(32, 25, 9, 0.16), 0 2px 10px 0
+		rgba(32, 25, 9, 0.12);
+	position: relative;
+	z-index: 2;
+	border: 1px solid #424242;
+}
+
+#chatList .card_user strong {
+	width: 50px;
+	font-size: 13px;
+	line-height: 13px;
+	font-weight: normal;
+}
+
+#chatList .comments {
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.6em;
+	max-width: 590px;
+	min-height: 15px;
+	background: rgb(255, 223, 8);
+	border-radius: 0 14px 14px 14px;
+	padding: 8px 12px;
+	position: relative;
+	color: #424242;
+	white-space: pre-wrap;
+	/* 단어를 브레이크 */
+	word-wrap: break-word;
+	display: inline-block;
+	/*font-weight: 700;*/
+	/*text-shadow:1px 1px 1px #424242;*/
+}
+
+#chatList .mine .comments {
+	border-radius: 14px 0px 14px 14px;
+}
+
+#chatList .mine .comments::before {
+	right: -10px;
+	left: inherit;
+	border: none;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid rgb(255, 223, 8);
+}
+
+#chatList .comments::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: -10px;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid rgb(255, 223, 8);
+}
+
+#inputChatBox {
+	width: 595px;
+	height: 50px;
+	position: relative;
+	margin: auto;
+}
+
+#msg {
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px 10px;
+	font-family: 'Noto Sans KR', sans-serif;
+	width: 494px;
+	height: 28px;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+#inputBtn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	height: 26px;
+}
+
+.btn {
+	border: 0;
+	margin: 0;
+	padding: 8px 14px;
+	background-color: rgb(255, 223, 8);
+	color: rgb(75, 56, 57);
+	text-decoration: none;
+	font-weight: 700;
+	box-sizing: content-box;
+	display: inline-block;
+	font-size: 18px;
+	line-height: normal;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+button.btn {
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: #795548;
+	color: rgb(255, 223, 8);
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#nickname {
+	font-size: 20px;
+	width: 220px;
+	font-family: "Noto Sans KR", sans-serif;
+	padding: 8px 12px;
+	font-weight: 700;
+	color: #795548;
+	text-align: center;
+}
+
+.cmd {
+	text-align: center;
+}
+
+.cmd img {
+	width: 60px;
+	height: 60px;
+	border-radius: 100px;
+	vertical-align: middle;
+}
+
+.cmd span {
+	vertical-align: middle;
+	font-size: 22px;
+	font-weight: 900;
+	color: rgb(255, 223, 8);
+}

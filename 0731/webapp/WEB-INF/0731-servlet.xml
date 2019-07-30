@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- 꼭 설정해야 함 -->
+	<mvc:annotation-driven/>
+	
+	<!-- Interceptor 설정 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/article/write"/>
+			<mvc:mapping path="/article/*/update"/>
+			<bean class="org.jbp.model2.interceptor.LoginCheck"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	
+	<!-- REST경우 모든 요청을 
+	DispatcherServlet에서 받기 때문에
+	css,js,fonts등 폴더들에 접근시키는
+	설정이 필요함
+	 -->
+	 <mvc:resources location="/css/" mapping="/css/**"/>
+	 <mvc:resources location="/fonts/" mapping="/fonts/**"/>
+	 <mvc:resources location="/js/" mapping="/js/**"/>
+	 <mvc:resources location="/img/" mapping="/img/**"/>
+	 <mvc:resources location="/profile/" mapping="/profile/**"/>
+	 <mvc:resources location="/upload/" mapping="/upload/**"/>
+	
+	<!-- 
+	/WEB-INF/view와 .jsp 중복을
+	편리하게 처리 -->
+	<mvc:view-resolvers>
+		<mvc:jsp 
+		suffix=".jsp"
+		prefix="/WEB-INF/view/"/>
+	</mvc:view-resolvers>
+
+	<!-- SpringWebMVC 에 대한 설정 -->
+	<bean 
+	p:service-ref="articlesService"
+	class="org.jbp.model2.controller.ArticleController"/>
+	<bean class="org.jbp.model2.controller.ReplyController"/>
+	<bean
+	p:usersService-ref="usersService"
+	 class="org.jbp.model2.controller.UserController"/>
+
+	<bean
+	p:repliesService-ref="repliesService"
+	p:articlesService-ref="articlesService"
+	p:fileRenameUtil-ref="fileRenameUtil"
+	p:imageUtil-ref="resizeImageUtil"
+	p:usersService-ref="usersService"
+	 class="org.jbp.model2.controller.AjaxController"/>
+	 
+	 <bean class="org.jbp.model2.controller.ChatController"/>
+	 
+	 
+	 	<!-- MultipartResovler -->
+	<bean id="multipartResolver" 
+		p:defaultEncoding="UTF-8"
+		p:maxUploadSize="104857600"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+</beans>
+
+

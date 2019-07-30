@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+#contentsBox {
+	width: 1100px;
+	border: 1px solid #9E9E9E;
+	margin: auto;
+	font-size: 22px;
+	border-bottom: none;
+}
+
+#infoBox {
+	width: 1100px;
+	height: 160px;
+	position: relative;
+	border-bottom: 1px solid #9E9E9E;
+}
+
+#no {
+	font-size: 26px;
+	position: absolute;
+	top: 15px;
+	left: -15px;
+	background: #14BAB6;
+	width: 48px;
+	height: 40px;
+	z-index: 1;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	line-height: 40px;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#no::after {
+	content: "";
+	display: block;
+	position: absolute;
+	border-top: 15px solid #0e8783;
+	border-left: 15px solid transparent;
+}
+
+#title {
+	width: 900px;
+	position: absolute;
+	font-size: 28px;
+	color: #676767;
+	font-weight: bold;
+	left: 160px;
+	top: 60px;
+}
+
+.card_user {
+	left: 30px;
+	top: 20px;
+}
+
+#regdate {
+	position: absolute;
+	bottom: 12px;
+	right: 20px;
+	font-size: 17px;
+}
+
+#hit {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+#viewerSection {
+	width: 1040px;
+	padding: 30px;
+	min-height: 500px;
+	white-space: pre-line;
+	word-break: break-all;
+	margin: auto;
+}
+
+.box_btn {
+	height: 50px;
+	border-top: 1px solid #9E9E9E;
+	padding: 20px;
+	position: relative;
+}
+
+#replyBox {
+	width: 1100px;
+	margin: 0 auto 20px auto;
+	border: 1px solid #9E9E9E;
+}
+
+#replyBox h3 {
+	text-align: center;
+	font-size: 26px;
+	margin: 16px;
+	font-weight: bold;
+}
+
+#formBox {
+	width: 900px;
+	height: 110px;
+	margin: 20px auto;
+	position: relative;
+}
+
+#contentsField {
+	width: 760px;
+	min-height: 90px;
+	padding: 10px;
+	border: none;
+	color: #333;
+	resize: none;
+	border: 1px solid #9E9E9E;
+	font: 19px "Noto Sans KR", "나눔고딕", nanumGothic, "맑은 고딕", malgunGothic,
+		"돋움", dotum, sans-serif;
+}
+
+#contentsField:focus {
+	border-color: #14BAB6;
+	outline: 3px solid #14BAB6;
+}
+
+.box_btn  .btn_like {
+	position: absolute;
+	left: 20px;
+	top: 20.5px;
+	width: 110px;
+	height: 50px;
+	border: none;
+	font-size: 30px;
+	background: transparent;
+	cursor: pointer;
+	border: 1px solid #9E9E9E;
+}
+
+.btn_like:hover {
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.btn_like i {
+	color: red;
+	vertical-align: middle;
+}
+
+.btn_like .far {
+	display: inline;
+}
+
+.btn_like.like .far {
+	display: none;
+}
+
+.btn_like .fas {
+	display: none;
+}
+
+.btn_like.like .fas {
+	display: inline;
+}
+
+.num_like {
+	font-size: 22px;
+	vertical-align: middle;
+}
+
+#formBox #writeBtn {
+	position: absolute;
+	right: 0px;
+	width: 110px;
+	height: 110px;
+	padding: 0;
+}
+
+#replyListBox {
+	width: 900px;
+	margin: 20px auto;
+}
+
+#replyListBox ul {
+	border-top: 1px solid #9E9E9E;
+}
+
+#replyListBox li {
+	padding: 10px;
+	min-height: 140px;
+	border-bottom: 2px dotted #bbb;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+#replyListBox .box_reply {
+	width: 730px;
+	min-height: 100px;
+	/* 포지셔닝 컨텍스트 지정 */
+	position: relative;
+	padding-left: 20px;
+	padding-top: 50px;
+	left: 130px;
+	top: 0;
+}
+
+#replyListBox .delete {
+	font-size: 19px;
+	font-weight: 500;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #aaa;
+	color: #fff;
+	text-decoration: none;
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	text-align: center;
+	padding: 0;
+	line-height: 36px;
+}
+
+#replyListBox .delete:hover {
+	background: #14BAB6;
+}
+
+#replyListBox .comments {
+	width: 680px;
+	min-height: 70px;
+	background: #b5f4f2;
+	border-radius: 0 12px 12px 12px;
+	padding: 10px;
+	position: relative;
+	color: #424242;
+	white-space: pre-wrap;
+	/* 단어를 브레이크 */
+	word-wrap: break-word;
+}
+
+#replyListBox .box_reply .time {
+	top: 26px;
+	left: 20px;
+	position: absolute;
+	font-size: 15px;
+}
+
+#replyListBox .comments::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: -10px;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #b5f4f2;
+}
+
+.no_reply {
+	text-align: center;
+	font-size: 22px;
+	line-height: 140px;
+}

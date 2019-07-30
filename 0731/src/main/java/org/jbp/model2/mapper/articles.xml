@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="articles">
+
+	<update id="updateReplies" parameterType="int">
+		UPDATE articles 
+		SET replies = (SELECT COUNT(*) FROM replies WHERE article_no = #{no})
+		WHERE no = #{no}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM articles
+		WHERE no = #{no}
+	</delete>
+	
+	<update id="updateHit" parameterType="int">
+		UPDATE articles 
+		SET hit = hit+1
+		WHERE no = #{no}
+	</update>
+	
+	<update id="update" parameterType="Article">
+		UPDATE articles 
+		SET title = #{title},
+		contents = #{contents}
+		WHERE no = #{no}
+	</update>
+	
+	<select id="selectOne"
+	parameterType="int"
+	resultType="Article">
+		SELECT no, title, contents, writer,
+		 writer_no writerNo,profile,hit,
+		  replies,regdate, likes
+		FROM articles
+		WHERE no = #{no}
+	</select>
+
+	<select id="selectTotal" resultType="int">
+		SELECT count(*)
+		FROM articles
+	</select>
+	
+	<select id="selectPageList" 
+	resultType="Article"
+	parameterType="PageVO">
+		SELECT no, title, contents, writer, writerNo,profile,
+		hit, replies, regdate, likes, r
+		FROM(SELECT no, title, contents, writer, writerNo,profile,
+		hit, replies, regdate, likes, rownum r
+		FROM(SELECT no, title, contents, writer,profile,
+		writer_no writerNo, hit, replies, regdate, likes
+		FROM articles
+		ORDER BY no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<insert id="insert" parameterType="Article">
+		<selectKey order="BEFORE"
+		keyProperty="no" 
+		resultType="int">
+			SELECT articles_seq.nextval
+			FROM dual
+		</selectKey>
+		INSERT INTO articles(no,title,contents,
+		writer,writer_no,profile,hit,replies,regdate,likes)
+		VALUES(#{no},#{title},#{contents},
+		#{writer},#{writerNo},#{profile},0,0,systimestamp,0)
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

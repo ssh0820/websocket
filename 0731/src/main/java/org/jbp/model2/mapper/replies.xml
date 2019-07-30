@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="replies">
+	<select id="selectList" parameterType="PageVO"
+		resultType="Reply">
+		SELECT no, contents, writer, writerNo, articleNo, profile,
+		regdate
+		FROM(SELECT no, contents, writer, writerNo, articleNo, profile, regdate, rownum r
+		FROM(SELECT no, contents, writer, writer_no writerNo, article_no
+		articleNo, profile, regdate
+		FROM replies
+		WHERE article_no = #{no}
+		ORDER BY 1 DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectTotal" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM replies
+		WHERE article_no = #{articleNo}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM replies
+		WHERE no = #{no}
+	</delete>
+	
+	<delete id="deleteAll" parameterType="int">
+		DELETE FROM replies
+		WHERE article_no = #{no}
+	</delete>
+	
+	<insert id="insert" parameterType="Reply">
+		INSERT INTO replies(no,contents, writer, writer_no, article_no, profile, regdate)
+		VALUES(replies_seq.nextval,#{contents},#{writer},#{writerNo},#{articleNo},#{profile},systimestamp)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
