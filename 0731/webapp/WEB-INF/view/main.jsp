@@ -1,27 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:if test="${loginUser==null}">
-	<c:redirect url="/index"/>
-</c:if>  
+	<c:redirect url="/index" />
+</c:if>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <title>까까오톡</title>
-<c:import url="/WEB-INF/template/link.jsp"/>	
+<c:import url="/WEB-INF/template/link.jsp" />
 <link rel="stylesheet" href="/css/chat.css" />
 </head>
 <body>
-<c:import url="/WEB-INF/template/header.jsp"/>	
-<h2 class="title"><i class="far fa-comment-dots"></i> 까까오톡</h2>
-<div id="chattingSection">
-	<div id="chatList">
+	<c:import url="/WEB-INF/template/header.jsp" />
+	<div id="chattingSection">
+		<div id="chatList">
 			<h3 class="screen_out">채팅목록</h3>
 			<div id="chatListWrap">
-			<ul>
-		
-			</ul>
+				<ul>
+
+				</ul>
 			</div>
 		</div>
 		<!--//.chatList -->
@@ -37,8 +36,21 @@
 			</form>
 		</div>
 		<!--//#inputChatBox -->
-		</div>
-<c:import url="/WEB-INF/template/footer.jsp"/>
+	</div>
+	<c:import url="/WEB-INF/template/footer.jsp"></c:import>
+	<script src="/js/underscore-min.js"></script>
+	<script src="/js/moment-with-locales.js"></script>
+	<script src="/js/sockjs.min.js"></script>
+	<script src="/js/stomp.min.js"></script>
+<script>
+	//handshaking(악수)
+	let socket = new SockJS("/chat");
+	//STOMP로 
+	let stompClinet = Stomp.over(socket);
+	//연결
+	stompClinet.connect({},function(){
+		console.log("연결됨!");
+	});
+</script>
 </body>
 </html>
-    

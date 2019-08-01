@@ -4,7 +4,9 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
@@ -56,7 +58,20 @@
 	<bean id="multipartResolver" p:defaultEncoding="UTF-8"
 		p:maxUploadSize="104857600"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
-
+	
+	<!-- 
+		STOMP를 이용
+		endpoint path : 웹 소캣 연결 경로
+		
+		c -> s : 주소(application-destination-prefix="/app")
+		s -> c : 주소(prefix="/topic(브로드캐스팅),/queue(유니캐스팅)")
+	-->
+	<websocket:message-broker application-destination-prefix="/app">
+		<websocket:stomp-endpoint path="/chat">
+			<websocket:sockjs></websocket:sockjs>
+		</websocket:stomp-endpoint>
+		<websocket:simple-broker prefix="/topic,/queue"/>
+	</websocket:message-broker>
 </beans>
 
 

@@ -53,8 +53,8 @@
 </div><!--//content -->
 <div id="footer">
 <address>&copy; 2019 <a href="">jbp.org</a></address>
-</div><!--// footer  -->
-<script src="/js/fix-footer.js"></script>
+</div><!--// footer  --><script src="/js/fix-footer.js"></script>
+
 <script>
     const $id = $("#id");
     const $pwd = $("#pwd");
